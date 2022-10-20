@@ -6,6 +6,11 @@ myImage.addEventListener("load", function () {
   const ctx = canvas.getContext("2d");
   canvas.width = 640;
   canvas.height = 853;
+  const gradient1 = ctx.createLinearGradient(0, 0, canvas.width, canvas.height)
+gradient1.addColorStop('0.2','lemonchiffon');
+gradient1.addColorStop('0.3','palegreen');
+gradient1.addColorStop('0.4','lavender');
+gradient1.addColorStop('0.5','lemonchiffon');
 
   ctx.drawImage(myImage, 0, 0, canvas.width, canvas.height);
   const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -56,6 +61,7 @@ myImage.addEventListener("load", function () {
       this.position2 = Math.floor(this.x);
       if((mappedImage[this.position1])&&(mappedImage[this.position1][this.position2])){
         this.speed = mappedImage[this.position1][this.position2][0];
+        this.size = this.speed*1.5
       }
      
       let movement = (2.5 - this.speed)+ this.velocity;
@@ -76,10 +82,10 @@ myImage.addEventListener("load", function () {
   }
     draw(){
       ctx.beginPath();
-      if((mappedImage[this.position1])&&(mappedImage[this.position1][this.position2])){
-        ctx.fillStyle = mappedImage[this.position1][this.position2][1]
-      }
-      
+      // if((mappedImage[this.position1])&&(mappedImage[this.position1][this.position2])){
+      //   ctx.fillStyle = mappedImage[this.position1][this.position2][1]
+      // }
+      ctx.fillStyle = gradient1
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
       ctx.fill();
     }
