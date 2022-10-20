@@ -9,6 +9,6 @@ starting with the folder ***Greyscale*** which looks at how to take images break
 
 We then move to ***GreyscaleRain*** which builds up the foundation of the first folder with the introdution of x and y axis manipulation and array values to manage velocity.
 
-the final output og this project can be viewed [here](https://youtube.com/shorts/32xf0kxRH4k)
+the final output of this project can be viewed [here](https://youtube.com/shorts/32xf0kxRH4k)
 
 next is ***pixelFlow**
