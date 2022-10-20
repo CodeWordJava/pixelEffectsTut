@@ -11,4 +11,32 @@ myImage.addEventListener('load', function(){
     canvas.height = 853;
     
     ctx.drawImage(myImage, 0, 0, canvas.width,canvas.height)
+    
+    //set up particles
+    let particlesArray= []
+    const numberOfParticles = 5000;
+
+    class Particle{
+        constructor(){
+            this.x = Math.random() * canvas.width;
+            this.y = 0;
+            this.speed = 0;
+            this.velocity = Math.random() * 0.5;
+            this.size = Math.random()* 1.5 + 1;
+        }
+        update(){
+            this.y+= this.velocity;
+            if(this.y >=canvas.height){
+                this.y= 0;
+                this.x = Math.random()* canvas.width
+            }
+            
+        }
+        draw(){
+            ctx.beginPath();
+            ctx.fillStyle = "white"
+            ctx.arc(this.x, this.y,this,size,0, MAth.PI*2);
+            ctx.fill()
+        }
+    }
 })
